@@ -16,10 +16,10 @@ class DataBase:
         return MongoClient(
             f"mongodb+srv://{getenv('MONGODB_USER')}:{getenv('MONGODB_PASS')}"
             f"@{getenv('MONGODB_URI')}/test?retryWrites=true&w=majority"
-        ).med_cab.strains
+        ).MEDCABU4.cannabis
 
     def read_csv(self):
-        return pd.read_csv('test_app/lemmatized_strains.csv')
+        return pd.read_csv('app/lemmatized_strains.csv')
 
     def make_db(self):
         """Creates and populates database in MongoDB"""
@@ -39,5 +39,5 @@ class DataBase:
 
 if __name__ == '__main__':
     data_model = DataBase()
-    # data_model.make_db()
+    data_model.make_db()
     data_model.connect_db()
